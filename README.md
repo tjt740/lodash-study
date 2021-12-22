@@ -3,7 +3,7 @@
 
 
 🥐 这是我学习Angular的分支；
-🍑 分支包含 Angular12及以下版本 + 部分 DEMO  
+🍑 分支包含Angular12及以下版本 + 部分DEMO  
 
 学习: angular-summary-xxxx 
 实操: angular-demo-xxxx
