@@ -3,7 +3,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
 import { NoFoundComponent } from './pages/no-found/no-found.component';
 import { AuthGuard } from './auth/auth.guard';
-
+import { KnowledgePoint1Component } from './pages/knowledge-point1/knowledge-point1.component';
 
 const routes: Routes = [
 
@@ -13,9 +13,13 @@ const routes: Routes = [
     // 路由守卫
     canActivate:[AuthGuard],
     children: [
-
+      {
+        path: 'knowledge-point1',
+        component:KnowledgePoint1Component,
+      }
     ]
   },
+
   // 重定向页面
   {
     path: '',
