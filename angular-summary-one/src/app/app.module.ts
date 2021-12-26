@@ -19,7 +19,13 @@ import { IndexOpenComponent } from './components/index-open/index-open.component
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { KnowledgePoint1Component } from './pages/knowledge-point1/knowledge-point1.component';
+import { KnowledgePoint2Component } from './pages/knowledge-point2/knowledge-point2.component';
+import { KnowledgePoint3Component } from './pages/knowledge-point3/knowledge-point3.component';
 // 服务
+
+
+// 插件
+
 
 registerLocaleData(zh);
 
@@ -30,6 +36,8 @@ registerLocaleData(zh);
     NoFoundComponent,
     IndexOpenComponent,
     KnowledgePoint1Component,
+    KnowledgePoint2Component,
+    KnowledgePoint3Component,
   ],
   imports: [
     BrowserModule,

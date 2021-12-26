@@ -1,0 +1,56 @@
+<!-- *ngIf -->
+<div *ngIf='Vif'>💟</div>
+<div *ngIf='!Vif;else elseTep'>💖</div>
+<div *ngIf='Vif;then thenTep;else elseTep'></div>
+
+<ng-template #thenTep>
+  <div> thenTemplate ✅ </div>
+</ng-template>
+
+<ng-template #elseTep>
+  <div> elseTemplate ❌ </div>
+</ng-template>
+
+<!-- *ngFor -->
+<ul>
+  <li *ngFor="let item of list;let i = index; trackBy:trackFn">
+    id:{{item.id}} ◀▶ value: {{item.name }} ◀▶ index: {{i}}
+  </li>
+</ul>
+
+
+<ul>
+  <li *ngFor="let item of list;index as i">
+    value: {{item.name }} ◀▶ index: {{i}}
+  </li>
+</ul>
+
+
+<!-- ngSwitch -->
+
+<div>
+  <ul >
+    <li *ngIf='str==="戚思宁"'>str 💗 戚思宁</li>
+    <li *ngIf='str==="柳晔"'>str 💗 柳晔</li>
+    <li *ngIf='str==="谭金涛"'>str 💗 谭金涛</li>
+    <li *ngIf='str!=="戚思宁" && str !=="柳晔" && str !=="谭金涛"'>str 💗 徐晨彦</li>
+  </ul>
+</div>
+
+<!-- 过于冗余 -->
+
+<div>
+  <ul [ngSwitch]="str">
+    <li *ngSwitchCase="'戚思宁'">str 💗 戚思宁</li>
+    <li *ngSwitchCase="'柳晔'">str 💗 柳晔</li>
+    <li *ngSwitchCase="'谭金涛'">str 💗 谭金涛</li>
+    <li *ngSwitchDefault>str 💗 徐晨彦</li>
+  </ul>
+</div>
+
+
+<!-- 事件 -->
+<button nz-button nzType="primary" (click)="btnClick2('哈哈哈',$event)">携参事件</button>
+
+<button nz-button nzType="default" (click)="btnClick1()">不携参事件</button>
+

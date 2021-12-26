@@ -1,1 +1,60 @@
-1
+<!-- 绑定数据 -->
+<h1>插值表达式:{{title}}</h1>
+<!-- 填写逻辑数据 -->
+<h1>1+1={{1+1}}</h1>
+<!-- 执行函数 -->
+<h1>{{fn()}}</h1>
+
+
+<div title='我是静态属性'> 鼠标移入展示title</div>
+<div [title]='dynamic'> 鼠标移入展示title</div>
+
+<!-- 第一种 -->
+<img src="{{imgSrc}}">
+
+<!-- 第二种 推荐-->
+<img [src]="imgSrc">
+
+<!-- 第三种 -->
+<img bind-src="imgSrc">
+
+<h2 [innerText]="innerInfo">内嵌text</h2>
+<h2 [innerHtml]="innerInfo">内嵌HTML</h2>
+
+<button nz-button nzType="default" (click)="btnClick($event)">测试事件</button>
+
+<!-- 双向数据绑定 -->
+<textarea rows="4" nz-input [(ngModel)]="inputValue" (change)='changeInputValue($event)'></textarea>
+
+
+<!-- 绑定类名的方法 -->
+<div class="static-className">静态className</div>
+
+<!-- 指定className -->
+<div [ngClass]='dynamicClassName'>动态className</div>
+
+<!-- 判断className (1) -->
+<div [ngClass]="{'yes-className':judgmentClassName,'no-className':!judgmentClassName}">判断类名</div>
+
+<!-- 判断className (2) -->
+<div [class.text]='booleanTrue'> 动态判断className</div>
+
+<!-- 绑定多个className  -->
+<div [ngClass]="classNameS1"> 绑定多个className (1) </div>
+
+<div [ngClass]="classNameS2"> 绑定多个className (2) </div>
+
+<div [ngClass]="classNameS3"> 绑定多个className (3) </div>
+
+<!-- 绑定style的方法 -->
+
+<h3 style='color: tan;'>静态style</h3>
+
+<h3 [style]="{'color': dynamicStyle1}"> 动态style (1) </h3>
+
+<h3 [ngStyle]='dynamicStyle2'>动态style (2) </h3>
+
+
+<h1 [hidden]="hidden"> hidden隐藏 </h1>
+
+

@@ -4,6 +4,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { NoFoundComponent } from './pages/no-found/no-found.component';
 import { AuthGuard } from './auth/auth.guard';
 import { KnowledgePoint1Component } from './pages/knowledge-point1/knowledge-point1.component';
+import { KnowledgePoint2Component } from './pages/knowledge-point2/knowledge-point2.component';
+import { KnowledgePoint3Component } from './pages/knowledge-point3/knowledge-point3.component';
 
 const routes: Routes = [
 
@@ -16,6 +18,14 @@ const routes: Routes = [
       {
         path: 'knowledge-point1',
         component:KnowledgePoint1Component,
+      },
+      {
+        path: 'knowledge-point2',
+        component:KnowledgePoint2Component,
+      },
+      {
+        path: 'knowledge-point3',
+        component:KnowledgePoint3Component,
       }
     ]
   },

@@ -1,5 +1,6 @@
 import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-index',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit, AfterContentChecked {
   isIndex: string | boolean = '';
+  time = dayjs().format('HH:mm')
   constructor(private route: Router) {}
 
   ngOnInit(): void {}
