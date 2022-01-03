@@ -1,1 +1,18 @@
-<p>knowledge-point3 works!</p>
+<h1>官方管道</h1>
+
+<p>{{ currentTime | date: 'yyyy‐MM‐dd HH:mm:ss' }}</p>
+<p>{{ strUppercase | uppercase }}</p>
+<p>{{ strLowercase | lowercase }}</p>
+<!--  -->
+<p>{{'123456789'|slice:2:8}}</p>
+<!-- 345678 -->
+
+<p>小数点<span style="color:red;">（'1.3-3':小数点前保留1位，小数点后保留3至3，即3位）</span>：{{2.030256287 | number: "1.1-4"}}</p>
+<p>百分比默认：{{0.2 | percent}}</p>
+
+<p>百分比位数：{{0.2345678 | percent: '1.1-3'}}</p>
+
+<h1>自定义管道</h1>
+<p>排序管道: {{list | sortPipe}}</p>
+
+<p>链式使用管道: {{list | sortPipe | quChong:[7,'tjt','qsn']}}</p>

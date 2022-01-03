@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KnowledgePoint3Component implements OnInit {
 
+  currentTime = new Date();
+  strUppercase = 'abcdefg';
+  strLowercase = 'TJTQSN';
+  list = [1, 3, 4, 2, 5, 6, 2, 3];
+
   constructor() { }
 
   ngOnInit(): void {
