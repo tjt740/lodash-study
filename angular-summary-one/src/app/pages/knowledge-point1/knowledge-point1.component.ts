@@ -14,7 +14,7 @@ export class KnowledgePoint1Component implements OnInit {
 
   inputValue: string = '初始文案';
 
-  innerInfo = '<b>我是innerHTML</b>'
+  innerInfo = '<b>我是innerHTML</b>';
 
   dynamicClassName: string = 'dynamic-className';
 
@@ -32,12 +32,16 @@ export class KnowledgePoint1Component implements OnInit {
 
   dynamicStyle2 = {
     color: 'blue',
-  }
+  };
 
   hidden = true;
 
+  ngModelText = '';
 
   constructor() {}
+  changeInput(e: any) {
+    console.log(e);
+  }
 
   changeInputValue(e: any) {
     console.log('input参数:', e.target.value);

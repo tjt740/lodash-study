@@ -24,6 +24,12 @@
 <button nz-button nzType="default" (click)="btnClick($event)">测试事件</button>
 
 <!-- 双向数据绑定 -->
+<input type="text" [(ngModel)]='ngModelText' (ngModelChange)="changeInput($event)">
+
+<p>{{ngModelText}}</p>
+
+
+
 <textarea rows="4" nz-input [(ngModel)]="inputValue" (change)='changeInputValue($event)'></textarea>
 
 

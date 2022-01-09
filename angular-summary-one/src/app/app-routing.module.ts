@@ -6,6 +6,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { KnowledgePoint1Component } from './pages/knowledge-point1/knowledge-point1.component';
 import { KnowledgePoint2Component } from './pages/knowledge-point2/knowledge-point2.component';
 import { KnowledgePoint3Component } from './pages/knowledge-point3/knowledge-point3.component';
+import { KnowledgePoint4Component } from './pages/knowledge-point4/knowledge-point4.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'knowledge-point3',
         component:KnowledgePoint3Component,
+      },
+      {
+        path: 'knowledge-point4',
+        component:KnowledgePoint4Component,
       }
     ]
   },

@@ -1,0 +1,72 @@
+<input type="text" placeholder="请输入姓名" name="" id="" [(ngModel)]="info.name">
+<strong>姓名:</strong> <span>{{info.name}}</span>
+
+<nz-divider></nz-divider>
+
+<strong>性别:</strong>
+<input type="radio" value="男" [(ngModel)]="info.sex">
+<label for="男">男</label>
+<input type="radio" value="女" [(ngModel)]="info.sex">
+<label for="女">女</label>
+
+<nz-divider></nz-divider>
+<strong>居住地:</strong>
+<select [(ngModel)]="info.city">
+  <option [value]="item" *ngFor="let item of info.cityList">{{item}}</option>
+</select>
+<nz-divider></nz-divider>
+<strong>爱好：</strong>
+<span *ngFor="let item of info.hobby;let i = index">
+  <input type="checkbox" [value]="item.value" [(ngModel)]="item.flag">
+  <label [for]="'idx'+i">{{item.label}}</label>
+</span>
+
+<nz-divider></nz-divider>
+<strong>备注：</strong>
+<textarea [(ngModel)]="info.mark">
+</textarea>
+
+
+
+<nz-divider></nz-divider>
+
+
+姓名: <input type="text" [formControl]="nameFormControl"><br>
+年龄: <input type="text" [formControl]="ageFormControl"><br>
+邮箱: <input type="text" [formControl]="emailFormControl"><br>
+响应式:
+{{ nameFormControl.value | json}}
+{{ ageFormControl.value | json}}
+{{ emailFormControl.value | json}}
+<button (click)='resetForm()'> 重置 </button>
+
+
+<nz-divider></nz-divider>
+
+<form [formGroup]='validateForm'>
+  姓名：<input type="text" placeholder="请输入姓名~" formControlName="name">
+  年龄： <input type="text" placeholder="请输入年龄~" formControlName="age">
+  邮箱： <input type="text" placeholder="请输入Email~" formControlName="email">
+</form>
+
+响应式:{{validateForm.value | json }}
+<button (click)='resetFormGroup()'> 重置 </button>
+<button (click)='submit()'> 提交表单 </button>
+
+
+
+<nz-divider></nz-divider>
+<h1>嵌套的form表单</h1>
+<from [formGroup]='validateNestedForm'>
+  姓名：<input type="text" placeholder="请输入姓名~" formControlName="name">
+  年龄： <input type="text" placeholder="请输入年龄~" formControlName="age">
+  邮箱： <input type="text" placeholder="请输入Email~" formControlName="email">
+  <form formGroupName="address">
+    <input formControlName="area" placeholder="请输入地区">
+    <input formControlName="street" placeholder="请输入街道">
+  </form>
+</from>
+
+响应式:{{validateNestedForm.value | json }}
+
+<button (click)='resetNestedFormGroup()'> 重置 </button>
