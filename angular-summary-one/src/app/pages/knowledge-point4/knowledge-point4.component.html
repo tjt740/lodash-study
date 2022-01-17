@@ -70,3 +70,36 @@
 响应式:{{validateNestedForm.value | json }}
 
 <button (click)='resetNestedFormGroup()'> 重置 </button>
+
+
+<nz-divider></nz-divider>
+
+<h1>监听form表单值的变化</h1>
+
+<form [formGroup]="validateMonitorForm">
+  姓名：<input type="text" placeholder="请输入姓名~" formControlName="name">
+  性别:
+  <input type="radio" value="男" formControlName="sex">
+  <label for="男">男</label>
+  <input type="radio" value="女" formControlName="sex">
+  <label for="女">女</label>
+  <form formGroupName="address">
+    国家：<input type="text" formControlName='nation'>
+    省份：<input type="text" placeholder="请输入省份" formControlName='province'>
+  </form>
+</form>
+
+<nz-divider></nz-divider>
+<h1>对FormGroup赋值</h1>
+<button nz-button nzType="primary" (click)="setValue()">对整个form表单赋值</button>
+
+<button nz-button nzType="default" (click)="patchValue()">对整个form表单赋值</button>
+
+
+<button nz-button nzType="text" (click)="patchValue()">对FormGroup中某一个实例进行赋值</button>
+
+
+<button nz-button nzType="primary" (click)="changeFormGroupName()">对二级form表单赋值</button>
+
+
+<button nz-button nzType="default" (click)="changeFormGroupNameControl()">对第二层中的 FormGroup 中的某一个实例 赋值</button>

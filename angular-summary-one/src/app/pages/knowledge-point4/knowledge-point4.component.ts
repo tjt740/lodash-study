@@ -57,7 +57,95 @@ export class KnowledgePoint4Component implements OnInit {
   submit() {
     console.log('提交表单:', this.validateForm.value);
   }
-  constructor() {}
 
-  ngOnInit(): void {}
+  // 监听form的值的变化;
+  validateMonitorForm = new FormGroup({
+    name: new FormControl('谭金涛'), //设置默认值;
+    sex: new FormControl('男'),
+    address: new FormGroup({
+      nation: new FormControl('中国'),
+      province: new FormControl(null),
+    }),
+  });
+
+  constructor() {
+    // 获取FormGroup中某个值得变化
+    this.validateMonitorForm.get('name')?.valueChanges.subscribe({
+      next: (formChange) => {
+        console.log('form值变化:', formChange);
+      },
+    });
+    // 获取嵌套中FormGroup中值得变化
+    this.validateMonitorForm
+      .get('address')
+      ?.get('nation')
+      ?.valueChanges.subscribe({
+        next: (formChange) => {
+          console.log('第一种获取嵌套中FormGroup中值得变化:', formChange);
+        },
+      });
+
+    this.addressForm.get('province')?.valueChanges.subscribe((formChange) => {
+      console.log('第二种获取嵌套中FormGroup中值得变化:', formChange);
+    });
+
+    // 获取整个form的变化
+    this.addressForm.valueChanges.subscribe((formValue) => {
+      console.log('获取整个form的变化:', formValue);
+    });
+  }
+
+  get addressForm() {
+    return this.validateMonitorForm.get('address') as FormGroup;
+  }
+  ngOnInit(): void { }
+
+  setValue() {
+    this.validateMonitorForm.setValue({
+      name: '戚思宁',
+
+      address: {
+        nation: '瑞士',
+        province: '沃',
+      }
+    })
+  }
+
+
+  patchValue() {
+    this.validateMonitorForm.patchValue({
+      name: '张三',
+
+      address: {
+        nation: '中国',
+        province: '江苏',
+      }
+    })
+  }
+
+  //对FormGroup中某一个实例进行赋值
+  getSomeoneChange() {
+    this.validateMonitorForm.get('name')?.setValue('tjt');
+    this.validateMonitorForm.get('sex')?.patchValue('女');
+  }
+
+
+  // 对二级FormGroup整个赋值
+  changeFormGroupName() {
+    this.validateMonitorForm.get('address')?.setValue({
+        nation: '江苏',
+        province: '扬州',
+    })
+
+    this.validateMonitorForm.get('address')?.patchValue({
+      province: '苏州',
+    })
+  }
+
+  // 对第二层中的 FormGroup 中的某一个实例 赋值
+  changeFormGroupNameControl() {
+    this.validateMonitorForm.get('address')?.get('nation')?.setValue('上海');
+
+    this.validateMonitorForm.get('address')?.get('nation')?.patchValue('深圳');
+   }
 }
