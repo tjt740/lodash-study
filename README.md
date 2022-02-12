@@ -1,2 +1,1 @@
-# lodash-study-demo
-谭金涛学习lodash的项目
+🥐 这是我学习Lodash的分支； 🍑 主要是用JS实现Lodash中的方法;
