@@ -1,4 +1,4 @@
-# JavaScript-tool-function
+# lodash-study-demo
 
-🍑 这里汇集了谭金涛常用的JS方法。
+🥐 这是我学习Lodash的分支； 🍑 主要是用JS实现Lodash中的方法;
 
