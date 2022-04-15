@@ -6,114 +6,6 @@ import { Injectable } from '@angular/core';
 export class ToolsDocService {
   constructor() {}
 
-  // Ps:数组操作
-  // *数组乱序
-  chunkArray() {
-    return `
-      /*
-        将数组拆分成多个【size】长的区块，生成新数组。
-        如果【Array】无法被分割成全部等长的区块，那么最后剩余的元素将组成一个区块。
-      */
-
-      _.chunk(array, [size=1])
-
-      let arr1 = ['a1', 'b2', 'c3', 'd4', 'e5']
-      let arr2 = [['a', 'b'], 'c', 'd','e']
-
-      let newArr1 = _.chunk(arr1, 2);
-      // → [['a1', 'b2'], ['c3', 'd4'], ['e5']];
-
-      let newArr2 = _.chunk(arr2, 2);
-      // → [[["a","b"],"c"], ["d","e"]];
-
-    `;
-  }
-  randomArray() {
-    return `
-      // 数组乱序
-
-      // arr: 数组
-
-      const arrScrambling = (arr) => {
-        for (let i = 0; i < arr.length; i++) {
-          const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
-          [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
-        }
-        return arr;
-      };
-
-      arrScrambling([1,2,3,4,5])                      // [2, 3, 5, 1, 4]
-      arrScrambling([{a:1},{a:2},{a:3},{a:4},{a:5}])  // [{a: 2},{a: 1},{a: 4},{a: 5},{a: 3}]
-
-    `;
-  }
-
-  // *随机获取数组中的某个数
-  randomArrayNum() {
-    return `
-      // 随机获取数组中的某个数
-
-      // arr: 数组
-
-      const sample = arr => arr[Math.floor(Math.random() * arr.length)];
-
-      sample(['1',2,'3',4,5])  // '3'
-      sample([{a:1},{a:2},{a:3},{a:4},{a:5}])  // {a: 2}
-      sample([1,2,3,4,5])  // 2
-
-    `;
-  }
-
-  // *数组按照数组中某一对象进行排序
-  sortItemArray() {
-    return `
-      // 数组按照数组中某一对象进行排序
-
-      // a,b : Array.sort(a,b) <固定>形参;
-      // xxx : 目标数组需要进行排序的key;
-      // a.xxx - b.xxx 正序 | b.xxx - a.xxx 倒序;
-
-      function sortItemArray (a,b) {
-        return a.label - b.label; // (正序) 1 2 3 4 ...
-        return b.xxx - a.xxx;     // (倒序) 4 3 2 1 ...
-      };
-
-      let oldArr = [
-        {"value":"甲","label":1},
-        {"value":"丁","label":4},
-        {"value":"戊","label":5},
-        {"value":"乙","label":2},
-        {"value":"己","label":6},
-        {"value":"丙","label":3}
-      ];
-
-      let newArr1 = oldArr.sort(sortItemArray); // 正序 a-b
-      let newArr2 = oldArr.sort(sortItemArray); // 倒序 b-a
-
-    `;
-  }
-
-  // *交换数组中两个元素
-  swapItems() {
-    return `
-      // 交换数组中两个元素
-
-      // arr: 数组
-      // index1: 数组需要交换的下标1
-      // index2: 数组需要交换的下标2
-
-      function swapItems (arr, index1, index2) {
-        arr[index1] = arr.splice(index2, 1, arr[index1])[0];
-        return arr;
-      };
-
-      swapItems([1,3,2,4,5],2,1)         // [1, 2, 3, 4, 5]
-      swapItems([{a:1},{c:3},{b:2}],1,2) // [{a:1},{b:2},{c:3}]
-
-    `;
-  }
-
-
   // Ps:数字操作
   // *随机数字
   randomNum() {
@@ -353,6 +245,92 @@ export class ToolsDocService {
     `;
   }
 
+  // Ps:数组操作
+  // *数组乱序
+  randomArray() {
+    return `
+      // 数组乱序
+
+      // arr: 数组
+
+      const arrScrambling = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+          const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
+          [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+        }
+        return arr;
+      };
+
+      arrScrambling([1,2,3,4,5])                      // [2, 3, 5, 1, 4]
+      arrScrambling([{a:1},{a:2},{a:3},{a:4},{a:5}])  // [{a: 2},{a: 1},{a: 4},{a: 5},{a: 3}]
+
+    `;
+  }
+
+  // *随机获取数组中的某个数
+  randomArrayNum() {
+    return `
+      // 随机获取数组中的某个数
+
+      // arr: 数组
+
+      const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+
+      sample(['1',2,'3',4,5])  // '3'
+      sample([{a:1},{a:2},{a:3},{a:4},{a:5}])  // {a: 2}
+      sample([1,2,3,4,5])  // 2
+
+    `;
+  }
+
+  // *数组按照数组中某一对象进行排序
+  sortItemArray() {
+    return `
+      // 数组按照数组中某一对象进行排序
+
+      // a,b : Array.sort(a,b) <固定>形参;
+      // xxx : 目标数组需要进行排序的key;
+      // a.xxx - b.xxx 正序 | b.xxx - a.xxx 倒序;
+
+      function sortItemArray (a,b) {
+        return a.label - b.label; // (正序) 1 2 3 4 ...
+        return b.xxx - a.xxx;     // (倒序) 4 3 2 1 ...
+      };
+
+      let oldArr = [
+        {"value":"甲","label":1},
+        {"value":"丁","label":4},
+        {"value":"戊","label":5},
+        {"value":"乙","label":2},
+        {"value":"己","label":6},
+        {"value":"丙","label":3}
+      ];
+
+      let newArr1 = oldArr.sort(sortItemArray); // 正序 a-b
+      let newArr2 = oldArr.sort(sortItemArray); // 倒序 b-a
+
+    `;
+  }
+
+  // *交换数组中两个元素
+  swapItems() {
+    return `
+      // 交换数组中两个元素
+
+      // arr: 数组
+      // index1: 数组需要交换的下标1
+      // index2: 数组需要交换的下标2
+
+      function swapItems (arr, index1, index2) {
+        arr[index1] = arr.splice(index2, 1, arr[index1])[0];
+        return arr;
+      };
+
+      swapItems([1,3,2,4,5],2,1)         // [1, 2, 3, 4, 5]
+      swapItems([{a:1},{c:3},{b:2}],1,2) // [{a:1},{b:2},{c:3}]
+
+    `;
+  }
 
   // Ps:JSON操作
 

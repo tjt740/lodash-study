@@ -2,12 +2,12 @@
   <!-- menu -->
   <nz-sider class="menu-sidebar" nzWidth="256px">
     <div class="sidebar-logo">
-      <a href="https://www.lodashjs.com/" target="_blank">
-        <img [src]="logoImg" alt="logo">
-        <h1>Lodash 文档</h1>
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>NG-ZORRO文档</h1>
       </a>
     </div>
-    <ul nz-menu nzMode="inline"  *ngFor="let item of routeConfig; index as i; trackBy: trackFn">
+    <ul nz-menu nzMode="inline" nzTheme="dark" *ngFor="let item of routeConfig; index as i; trackBy: trackFn">
       <li nz-submenu [nzTitle]="item.title" [nzIcon]="item.icon">
         <ul *ngFor="let val of item.childRoute">
           <li nz-menu-item [routerLink]="val.router">

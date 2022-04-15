@@ -10,12 +10,12 @@ import * as all from '../../config/menu-config';
 })
 export class IndexComponent implements OnInit {
   isCollapsed = false;
+
   isIndex: string | boolean = '';
   routeConfig: any;
   selectedValue = null;
   listOfGroupOption: any = [];
-  // logo
-  logoImg = './assets/image/logo.png'
+
   // mock MenuConfig
   mockAll = JSON.parse(JSON.stringify(all.MenuConfig));
 
