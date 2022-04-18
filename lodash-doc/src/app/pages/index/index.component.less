@@ -48,6 +48,20 @@
   }
 
 
+  h3{
+    display: inline-block;
+    position: absolute;
+    left: 500px;
+    top: 50%;
+    color:#101010a5;
+    transform: translateY(-50%);
+  }
+  h3::before{
+    content:'★';
+    display: inline-block;
+    color:red
+  }
+
   .cdk-virtual-scroll-viewport {
     overflow: hidden !important;
   }

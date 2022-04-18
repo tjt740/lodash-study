@@ -10,8 +10,8 @@ export const MenuConfig = [
         router: '/index/util-1',
       },
       {
-        exhibitStr: '',
-        router: '/index/util-',
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-2',
       },
     ],
   },

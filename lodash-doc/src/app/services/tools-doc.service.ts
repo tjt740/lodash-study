@@ -7,7 +7,7 @@ export class ToolsDocService {
   constructor() {}
 
   // Ps:数组操作
-  // *数组乱序
+  // *将数组拆分成多个【size】长的区块，生成新数组。
   chunkArray() {
     return `
       /*
@@ -15,7 +15,7 @@ export class ToolsDocService {
         如果【Array】无法被分割成全部等长的区块，那么最后剩余的元素将组成一个区块。
       */
 
-      _.chunk(array, [size=1])
+      _.chunk(Array, [size=1])
 
       let arr1 = ['a1', 'b2', 'c3', 'd4', 'e5']
       let arr2 = [['a', 'b'], 'c', 'd','e']
@@ -28,22 +28,22 @@ export class ToolsDocService {
 
     `;
   }
-  randomArray() {
+
+  // *剔除数组中的假值，返回新数组
+  compactArray() {
     return `
-      // 数组乱序
+      /*
+        剔除数组中的假值，返回新数组。
+        例如false, null,0, "", undefined, 和 NaN 都是被认为是“假值”。
+      */
 
-      // arr: 数组
+      _.compact(Array);
 
-      const arrScrambling = (arr) => {
-        for (let i = 0; i < arr.length; i++) {
-          const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
-          [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
-        }
-        return arr;
-      };
+      let newArr1 = _.compact([0, 1, false, 2, '', 3]);
+      // → [1,2,3];
 
-      arrScrambling([1,2,3,4,5])                      // [2, 3, 5, 1, 4]
-      arrScrambling([{a:1},{a:2},{a:3},{a:4},{a:5}])  // [{a: 2},{a: 1},{a: 4},{a: 5},{a: 3}]
+      let newArr2 = [[NaN, 0, false], '0', 740];
+      // → [[NaN, 0, false],'0', 740];
 
     `;
   }
