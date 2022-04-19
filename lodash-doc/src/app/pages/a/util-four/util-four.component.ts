@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 import { ToolsDocService } from 'src/app/services/tools-doc.service';
 
 @Component({
@@ -14,7 +15,15 @@ export class UtilFourComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initCode = this.toolsDoc.randomArray();
+
+    let arr = [1, 2, 3];
+    let newArr1 = _.difference(arr, [2, 3]);
+
+    console.log('newArr1:', newArr1);
+
+
+
+    // this.initCode = this.toolsDoc.randomArray();
   }
 
 }

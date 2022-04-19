@@ -14,7 +14,7 @@ export class UtilFiveComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initCode = this.toolsDoc.randomArrayNum();
+    // this.initCode = this.toolsDoc.randomArrayNum();
   }
 
 }

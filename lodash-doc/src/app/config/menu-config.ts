@@ -12,6 +12,27 @@ export const MenuConfig = [
       {
         exhibitStr: '剔除数组中的假值，返回新数组',
         router: '/index/util-2',
+      },{
+        exhibitStr: '将【Array】与任何数组或值拼接，返回新数组',
+        router: '/index/util-3',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-4',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-5',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-6',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-7',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-8',
+      },{
+        exhibitStr: '剔除数组中的假值，返回新数组',
+        router: '/index/util-9',
       },
     ],
   },

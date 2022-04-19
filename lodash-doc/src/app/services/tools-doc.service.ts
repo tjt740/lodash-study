@@ -7,7 +7,7 @@ export class ToolsDocService {
   constructor() {}
 
   // Ps:数组操作
-  // *将数组拆分成多个【size】长的区块，生成新数组。
+  // 将数组拆分成多个【size】长的区块，生成新数组。
   chunkArray() {
     return `
       /*
@@ -29,7 +29,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *剔除数组中的假值，返回新数组
+  // 剔除数组中的假值，返回新数组
   compactArray() {
     return `
       /*
@@ -42,29 +42,32 @@ export class ToolsDocService {
       let newArr1 = _.compact([0, 1, false, 2, '', 3]);
       // → [1,2,3];
 
-      let newArr2 = [[NaN, 0, false], '0', 740];
+      let newArr2 = _.compact([[NaN, 0, false], '0', 740]);
       // → [[NaN, 0, false],'0', 740];
 
     `;
   }
 
-  // *随机获取数组中的某个数
-  randomArrayNum() {
+  //  将【Array】与任何数组或值拼接，返回新数组
+  concatArray() {
     return `
-      // 随机获取数组中的某个数
+      // 将【Array】与任何数组或值拼接，返回新数组
 
-      // arr: 数组
+      _.concat(Array,[values]);
 
-      const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+      let arr = [1, 2, 3, 4];
 
-      sample(['1',2,'3',4,5])  // '3'
-      sample([{a:1},{a:2},{a:3},{a:4},{a:5}])  // {a: 2}
-      sample([1,2,3,4,5])  // 2
+      let newArr1 = _.concat(arr, 5, 6, [7]);
+      // → [1, 2, 3, 4, 5, 6, 7];
+
+      // @ts-ignore
+      var newArr2 = _.concat(arr, 2, [3], [[4]]);
+      // → [1, 2, 3, 4, 5, 6, [7]];
 
     `;
   }
 
-  // *数组按照数组中某一对象进行排序
+  // 数组按照数组中某一对象进行排序
   sortItemArray() {
     return `
       // 数组按照数组中某一对象进行排序
@@ -93,7 +96,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *交换数组中两个元素
+  // 交换数组中两个元素
   swapItems() {
     return `
       // 交换数组中两个元素
@@ -115,7 +118,7 @@ export class ToolsDocService {
 
 
   // Ps:数字操作
-  // *随机数字
+  // 随机数字
   randomNum() {
     return `
       // 随机数字
@@ -132,7 +135,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *数字转中文
+  // 数字转中文
   intToChinese() {
     return `
       // 数字转中文
@@ -221,7 +224,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *数字千分位分隔
+  // 数字千分位分隔
   partitionNum() {
     return `
       // 数字千分位分隔
@@ -253,7 +256,7 @@ export class ToolsDocService {
 
 
   // Ps:字符串操作
-  // *随机生成自定义长度的字符串
+  // 随机生成自定义长度的字符串
   randomStr() {
     return `
       // 随机生成自定义长度的字符串
@@ -277,7 +280,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *字符串首字母大写
+  // 字符串首字母大写
   firstStrUpper() {
     return `
       // 字符串首字母大写
@@ -292,7 +295,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *手机号中间几位变成'*'
+  // 手机号中间几位变成'*'
   telFormat() {
     return `
       // 手机号中间几位变成*
@@ -302,7 +305,7 @@ export class ToolsDocService {
 
       const telFormat = (tel, symbol = 4) => {
         tel = String(tel);
-        symbol = symbol > 7 ? 7 : symbol;  // *数不能大于7
+        symbol = symbol > 7 ? 7 : symbol;  // 数不能大于7
         const telPerFix = tel.substr(0, 3); // 手机号前缀
         const symbolNum = new Array(symbol).fill('*').join(''); // 生成指定的 * 数量;
         const telsSuffix = tel.substr(symbolNum.length + telPerFix.length); // 手机号后缀
@@ -317,7 +320,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *驼峰命名转换成短横线命名
+  // 驼峰命名转换成短横线命名
   getKebabCase() {
     return `
       // 驼峰命名转换成短横线命名
@@ -335,7 +338,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *短横线命名转换成驼峰命名
+  // 短横线命名转换成驼峰命名
   getCamelCase() {
     return `
       // 短横线命名转换成驼峰命名
@@ -358,7 +361,7 @@ export class ToolsDocService {
 
 
   // Ps:URL操作
-  // *获取URL上参数
+  // 获取URL上参数
   getUrlInfo() {
     return `
       // 获取URL上参数
@@ -392,7 +395,7 @@ export class ToolsDocService {
   }
 
   // Ps:存储(localStorage/sessionStorage)操作
-  // *获取localStorage
+  // 获取localStorage
   getLocalStorage() {
     return `
       // 获取localStorage
@@ -407,7 +410,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *存储localStorage
+  // 存储localStorage
   setLocalStorage() {
     return `
       // 存储localStorage
@@ -426,7 +429,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *删除localStorage
+  // 删除localStorage
   removeLocalStorage() {
     return `
       // 删除localStorage
@@ -441,7 +444,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *获取sessionStorage
+  // 获取sessionStorage
   getSessionStorage() {
     return `
       // 获取sessionStorage
@@ -456,7 +459,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *存储sessionStorage
+  // 存储sessionStorage
   setSessionStorage() {
     return `
       // 存储sessionStorage
@@ -475,7 +478,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *删除sessionStorage
+  // 删除sessionStorage
   removeSessionStorage() {
     return `
       // 删除sessionStorage
@@ -491,7 +494,7 @@ export class ToolsDocService {
   }
 
   // Ps:cookie操作
-  // *获取cookie
+  // 获取cookie
   getCookie() {
     return `
       // 获取cookie
@@ -515,7 +518,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *设置cookie
+  // 设置cookie
   setCookie() {
     return `
       // 设置cookie
@@ -534,7 +537,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *删除cookie
+  // 删除cookie
   delCookie() {
     return `
       // 删除cookie
@@ -549,7 +552,7 @@ export class ToolsDocService {
   }
 
   // Ps:格式校验
-  // *校验身份证号码
+  // 校验身份证号码
   checkCardNo() {
     return `
       // 校验身份证号码
@@ -564,7 +567,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否包含中文
+  // 校验是否包含中文
   haveCNChars() {
     return `
       // 校验是否包含中文
@@ -579,7 +582,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否为中国大陆的邮政编码
+  // 校验是否为中国大陆的邮政编码
   isPostCode() {
     return `
       // 校验是否为中国大陆的邮政编码
@@ -594,7 +597,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否为IPv6地址
+  // 校验是否为IPv6地址
   isIPv6() {
     return `
       // 校验是否为IPv6地址
@@ -608,7 +611,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否为邮箱地址
+  // 校验是否为邮箱地址
   isEmail() {
     return `
       // 校验是否为邮箱地址
@@ -623,7 +626,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否为中国大陆手机号
+  // 校验是否为中国大陆手机号
   isTel() {
     return `
       // 校验是否为中国大陆手机号
@@ -638,7 +641,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *校验是否包含emoji表情
+  // 校验是否包含emoji表情
   isEmojiCharacter() {
     return `
       // 校验是否包含emoji表情
@@ -685,7 +688,7 @@ export class ToolsDocService {
   }
 
   // Ps:判断类型
-  // *判断是否是数字
+  // 判断是否是数字
   isNumber() {
     return `
       // 判断是否是数字
@@ -704,7 +707,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *判断是否是数组
+  // 判断是否是数组
   isArray() {
     return `
       // 判断是否是数组
@@ -734,7 +737,7 @@ export class ToolsDocService {
   };
 
   // Ps:设备判断
-  // *判断是移动还是PC设备
+  // 判断是移动还是PC设备
   isMobile() {
     return `
       // 判断是移动还是PC设备
@@ -749,7 +752,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *判断是否是苹果设备
+  // 判断是否是苹果设备
   isAppleMobileDevice() {
     return `
       // 判断是否是苹果设备
@@ -762,7 +765,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *判断是否是安卓设备
+  // 判断是否是安卓设备
   isAndroidMobileDevice() {
     return `
       // 判断是否是安卓设备
@@ -774,7 +777,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *判断是Windows还是Mac系统
+  // 判断是Windows还是Mac系统
 
   isPcType() {
     return `
@@ -795,7 +798,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *判断是否是微信/QQ内置浏览器
+  // 判断是否是微信/QQ内置浏览器
   broswer() {
     return `
       // 判断是否是微信/QQ内置浏览器
@@ -814,7 +817,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *获取浏览器型号和版本
+  // 获取浏览器型号和版本
   getExplorerInfo() {
     return `
       // 获取浏览器型号和版本
@@ -852,7 +855,7 @@ export class ToolsDocService {
   }
 
   // Ps:浏览器操作
-  // *滚动到页面顶部
+  // 滚动到页面顶部
   scrollToTop() {
     return `
     // 滚动到页面顶部
@@ -870,7 +873,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *滚动到页面底部
+  // 滚动到页面底部
   scrollToBottom() {
     return `
       // 滚动到页面底部
@@ -882,7 +885,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *滚动到指定元素区域
+  // 滚动到指定元素区域
   smoothScroll() {
     return `
       // 滚动到指定元素区域
@@ -898,7 +901,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *获取可视窗口高度
+  // 获取可视窗口高度
   getClientHeight() {
     return `
       // 获取可视窗口高度
@@ -917,7 +920,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *获取可视窗口宽度
+  // 获取可视窗口宽度
   getClientWidth() {
     return `
       // 获取可视窗口宽度
@@ -929,7 +932,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *打开浏览器全屏
+  // 打开浏览器全屏
   toFullScreen() {
     return `
       // 打开浏览器全屏
@@ -950,7 +953,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *退出浏览器全屏
+  // 退出浏览器全屏
   exitFullscreen() {
     return `
       // 退出浏览器全屏
@@ -971,7 +974,7 @@ export class ToolsDocService {
   }
 
   // Ps:DOM操作
-  // *事件监听
+  // 事件监听
   listenEvent() {
     return `
       // 事件监听
@@ -1000,7 +1003,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *事件解绑
+  // 事件解绑
   eventRelieve() {
     return `
       // 事件解绑
@@ -1014,7 +1017,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *事件委托
+  // 事件委托
   eventDelegation() {
     return `
       <ul class="ul-box">
@@ -1049,7 +1052,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *阻止冒泡事件
+  // 阻止冒泡事件
   preventBubble() {
     return `
       // 阻止冒泡事件
@@ -1070,7 +1073,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *阻止默认行为
+  // 阻止默认行为
   preventDefault() {
     return `
       // 阻止默认行为
@@ -1092,7 +1095,7 @@ export class ToolsDocService {
   }
 
   // Ps:时间操作
-  // *格式化时间
+  // 格式化时间
   dateFormater() {
     return `
       // 格式化时间
@@ -1124,7 +1127,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *当前时间
+  // 当前时间
   nowTime() {
     return `
       // 当前时间
@@ -1144,7 +1147,7 @@ export class ToolsDocService {
   }
 
   // Ps:JavaScript操作
-  // *防抖
+  // 防抖
   debounce() {
     return `
       // 防抖: 在没有连续事件触发n秒后，执行一次回调函数，在n秒内重新触发事件则重新计算时间。
@@ -1176,7 +1179,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *节流
+  // 节流
   throttle() {
     return `
       // 节流: 连续事件发生时，每隔n秒触发一次事件。
@@ -1214,7 +1217,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *数据类型判断
+  // 数据类型判断
   getType() {
     return `
       // 数据类型判断
@@ -1244,7 +1247,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *深克隆/深拷贝
+  // 深克隆/深拷贝
   deepClone() {
     return `
       // 深克隆/深拷贝
@@ -1290,7 +1293,7 @@ export class ToolsDocService {
     `;
   }
 
-  // *模糊查询/模糊匹配
+  // 模糊查询/模糊匹配
   blurrySearch() {
     return `
       // 模糊查询/模糊匹配
